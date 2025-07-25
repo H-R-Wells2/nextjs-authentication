@@ -1,4 +1,5 @@
 import { login } from "@/actions/auth";
+import CredentialsSignInForm from "@/components/CredentialsSignInForm";
 import SignOutButton from "@/components/SignOutButton";
 import { FcGoogle } from "react-icons/fc";
 
@@ -13,10 +14,7 @@ const SignIn = () => {
           Welcome to HRWells
         </h2>
 
-        {/* Sign In Button */}
-        <button className="bg-secondary hover:bg-[#13aa95] w-full rounded-xl px-4 py-1.5 text-white font-semibold transition-colors cursor-pointer text-lg">
-          Sign In
-        </button>
+        <CredentialsSignInForm />
 
         {/* Divider */}
         <div className="w-full flex items-center gap-4">

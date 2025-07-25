@@ -13,7 +13,7 @@ export default async function Home() {
       <div className="absolute top-0 right-0 pr-3 pt-3">
         <SignOutButton />
       </div>
-      <div className="flex flex-col justify-center items-center p-6 rounded-2xl bg-white text-black shadow-xl max-w-sm w-full space-y-4">
+      <div className="flex flex-col justify-center items-center p-6 rounded-2xl bg-white text-black shadow-xl min-w-sm space-y-4">
         <h2 className="text-2xl font-bold text-slate-800">
           Welcome to HRWells
         </h2>
