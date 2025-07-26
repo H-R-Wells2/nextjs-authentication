@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import SignOutButton from "@/components/SignOutButton";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import { FaUser } from "react-icons/fa";
 
 export default async function Home() {
   const session = await auth();
@@ -21,11 +22,22 @@ export default async function Home() {
         <div className="w-full border-b border-slate-400" />
 
         <div className="flex w-full gap-5 items-center">
-          <Image src={session?.user?.image || ""} alt={session?.user?.image || "profile"} width={96} height={96} className="w-20 h-20 rounded-full shadow border-2 border-white" />
+          {session?.user?.image ? (
+            <Image
+              src={session.user.image}
+              alt={session.user.name || "profile"}
+              width={96}
+              height={96}
+              className="w-20 h-20 rounded-full shadow border-2 border-white"
+            />
+          ) : (
+            <FaUser className="w-20 h-20 p-2 rounded-full border border-slate-700 text-gray-800" />
+          )}
           <div className="flex flex-col">
-
-          <h3 className="text-lg font-semibold text-gray-800">{session?.user?.name}</h3>
-          <h3 className="text-lg  text-gray-700">{session?.user?.email}</h3>
+            <h3 className="text-lg font-semibold text-gray-800">
+              {session?.user?.name}
+            </h3>
+            <h3 className="text-lg  text-gray-700">{session?.user?.email}</h3>
           </div>
         </div>
       </div>
