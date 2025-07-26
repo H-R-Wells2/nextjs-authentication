@@ -11,7 +11,6 @@ export default function CredentialsSignInForm() {
   const router = useRouter();
 
   async function handleSubmit(formData: FormData) {
-    console.log("Submitting credentials sign-in form...");
     setLoading(true);
 
     const result = await credentialsSignIn(formData);
@@ -23,7 +22,7 @@ export default function CredentialsSignInForm() {
       toast.success("Signed in successfully!");
       setTimeout(() => {
         router.push("/");
-      }, 1500);
+      }, 800);
     }
   }
 
@@ -42,15 +41,16 @@ export default function CredentialsSignInForm() {
           name="email"
           required
           placeholder="Email"
-          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
           disabled={loading}
+          autoComplete="none"
         />
         <input
           type="password"
           name="password"
           required
           placeholder="Password"
-          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
           disabled={loading}
         />
         <button

@@ -1,13 +1,10 @@
 import { auth } from "@/auth";
 import SignOutButton from "@/components/SignOutButton";
 import Image from "next/image";
-import { redirect } from "next/navigation";
 import { FaUser } from "react-icons/fa";
 
 export default async function Home() {
   const session = await auth();
-
-  if (!session) redirect("/sign-in");
 
   return (
     <div className="min-h-[100dvh] bg-gradient-to-br from-[#d8e9fe] to-[#62a4fa] py-12 flex flex-col items-center justify-center px-4 sm:pt-20 relative">
@@ -16,7 +13,7 @@ export default async function Home() {
       </div>
       <div className="flex flex-col justify-center items-center p-6 rounded-2xl bg-white text-black shadow-xl min-w-sm space-y-4">
         <h2 className="text-2xl font-bold text-slate-800">
-          Welcome to HRWells
+          Welcome to HRWells Community
         </h2>
 
         <div className="w-full border-b border-slate-400" />
@@ -28,7 +25,7 @@ export default async function Home() {
               alt={session.user.name || "profile"}
               width={96}
               height={96}
-              className="w-20 h-20 rounded-full shadow border-2 border-white"
+              className="w-20 h-20 rounded-full shadow shadow-black border-4 border-slate-200"
             />
           ) : (
             <FaUser className="w-20 h-20 p-2 rounded-full border border-slate-700 text-gray-800" />

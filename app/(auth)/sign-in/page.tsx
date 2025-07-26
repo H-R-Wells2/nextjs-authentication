@@ -5,7 +5,6 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
 const SignIn = async () => {
-  // Redirect if user is already signed in
   const session = await auth();
   if (session?.user) {
     redirect("/");
@@ -14,8 +13,8 @@ const SignIn = async () => {
   return (
     <div className="min-h-[100dvh] bg-gradient-to-br from-[#d8e9fe] to-[#62a4fa] py-12 flex flex-col items-center justify-center px-4 sm:pt-20 relative">
       <div className="flex flex-col justify-center items-center p-6 rounded-2xl bg-white text-black shadow-xl max-w-sm w-full space-y-4">
-        <h2 className="text-2xl font-bold text-slate-800">
-          Welcome to HRWells
+        <h2 className="text-2xl font-bold text-slate-800 text-center">
+          Welcome to HRWells Community
         </h2>
 
         <CredentialsSignInForm />
