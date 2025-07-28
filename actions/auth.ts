@@ -24,6 +24,16 @@ export async function credentialsSignIn(formData: FormData) {
   }
 
   try {
+    const user = await prisma.user.findUnique({ where: { email } });
+
+    if (user && user.verified === false) {
+      return {
+        error: "Please verify your email before signing in",
+        needsVerification: true,
+        email,
+      };
+    }
+
     const result = await signIn("credentials", {
       email,
       password,
@@ -92,22 +102,58 @@ export async function credentialsSignUp(formData: FormData) {
         name,
         email,
         password: hashedPassword,
+        verified: false,
       },
     });
 
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
+    const { createVerificationToken } = await import("@/lib/verification");
+    const { sendVerificationEmail } = await import("@/lib/email");
 
-    if (result?.error) {
-      return { error: "Login failed after sign up" };
+    const token = await createVerificationToken(email);
+    const emailResult = await sendVerificationEmail(email, token);
+
+    if (!emailResult.success) {
+      return {
+        error:
+          "Account created but failed to send verification email. Please contact support.",
+      };
     }
 
-    return { success: true };
+    return {
+      success: true,
+      message:
+        "Account created successfully! Please check your email to verify your account.",
+    };
   } catch (error) {
     console.error("Sign up error:", error);
     return { error: "Failed to create account. Please try again." };
+  }
+}
+
+export async function resendVerificationEmail(email: string) {
+  try {
+    const { resendVerificationEmail: checkResend } = await import(
+      "@/lib/verification"
+    );
+    const eligibilityCheck = await checkResend(email);
+
+    if (!eligibilityCheck.success) {
+      return { error: eligibilityCheck.error };
+    }
+
+    const { createVerificationToken } = await import("@/lib/verification");
+    const { sendVerificationEmail } = await import("@/lib/email");
+
+    const token = await createVerificationToken(email);
+    const emailResult = await sendVerificationEmail(email, token);
+
+    if (!emailResult.success) {
+      return { error: "Failed to send verification email" };
+    }
+
+    return { success: true, message: "Verification email sent successfully" };
+  } catch (error) {
+    console.error("Resend verification error:", error);
+    return { error: "Failed to resend verification email" };
   }
 }

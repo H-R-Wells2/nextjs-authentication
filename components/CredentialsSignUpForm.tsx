@@ -19,7 +19,9 @@ export default function CredentialsSignUpForm() {
       toast.error(result.error);
       setLoading(false);
     } else {
-      toast.success("Account created successfully!");
+      toast.success(result.message || "Account created successfully!", {
+        duration: 7000,
+      });
       setTimeout(() => {
         router.push("/");
       }, 800);
@@ -43,8 +45,7 @@ export default function CredentialsSignUpForm() {
           required
           className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
           disabled={loading}
-          autoComplete="none"
-
+          autoComplete="off"
         />
         <input
           type="email"
@@ -53,8 +54,7 @@ export default function CredentialsSignUpForm() {
           required
           className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
           disabled={loading}
-          autoComplete="none"
-
+          autoComplete="off"
         />
         <input
           type="password"
@@ -86,7 +86,7 @@ export default function CredentialsSignUpForm() {
         Already have an account?{" "}
         <Link
           href="/sign-in"
-          className="text-secondary hover:text-[#13aa95] font-medium"
+          className="text-secondary hover:text-[#13aa95] font-semibold"
         >
           Sign in
         </Link>

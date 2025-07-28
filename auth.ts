@@ -47,6 +47,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
 
+          if (!user.verified) {
+            console.log("User email not verified");
+            return null;
+          }
+
           console.log("User authenticated:", user.email);
 
           return {
