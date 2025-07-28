@@ -12,29 +12,29 @@ export default async function Home() {
         <SignOutButton />
       </div>
       <div className="flex flex-col justify-center items-center p-6 rounded-2xl bg-white text-black shadow-xl min-w-sm space-y-4">
-        <h2 className="text-2xl font-bold text-slate-800">
+        <h2 className="text-xl font-bold text-slate-800">
           Welcome to HRWells Community
         </h2>
 
         <div className="w-full border-b border-slate-400" />
 
-        <div className="flex w-full gap-5 items-center">
+        <div className="flex w-full gap-3 items-center">
           {session?.user?.image ? (
             <Image
               src={session.user.image}
               alt={session.user.name || "profile"}
               width={96}
               height={96}
-              className="w-20 h-20 rounded-full shadow shadow-black border-4 border-slate-200"
+              className="w-[4.5rem] h-[4.5rem] rounded-full shadow shadow-black border-4 border-slate-200"
             />
           ) : (
-            <FaUser className="w-20 h-20 p-2 rounded-full border border-slate-700 text-gray-800" />
+            <FaUser className="w-[4.5rem] h-[4.5rem] p-2 rounded-full shadow shadow-black border-4 border-slate-200 text-gray-800" />
           )}
           <div className="flex flex-col">
             <h3 className="text-lg font-semibold text-gray-800">
               {session?.user?.name}
             </h3>
-            <h3 className="text-lg  text-gray-700">{session?.user?.email}</h3>
+            <h3 className="text-base  text-gray-700">{session?.user?.email}</h3>
           </div>
         </div>
       </div>
