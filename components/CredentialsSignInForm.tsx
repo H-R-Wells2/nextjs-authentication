@@ -95,6 +95,14 @@ export default function CredentialsSignInForm() {
         >
           {loading ? "Signing in..." : "Sign In"}
         </button>
+        <div className="text-start text-[0.85rem] -mt-1 text-slate-600">
+          <Link
+            href="/forgot-password"
+            className="text-secondary hover:text-[#13aa95] font-normal"
+          >
+            Forgot password?
+          </Link>
+        </div>
       </form>
 
       {showResendVerification && (

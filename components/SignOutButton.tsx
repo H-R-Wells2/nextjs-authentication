@@ -16,7 +16,7 @@ export default async function SignOutButton() {
             await logout();
           }}
         >
-          <button className="w-full flex items-center justify-center gap-3 border border-slate-300 hover:bg-slate-100 transition-colors rounded-xl px-3 py-1.5 font-medium text-slate-700 bg-white cursor-pointer">
+          <button className="w-full flex items-center justify-center gap-3 border border-slate-300 hover:bg-slate-100 transition-colors rounded-xl px-3 py-1.5 font-medium text-slate-700 bg-white cursor-pointer shadow-md">
             <FiLogOut className="w-5 h-5 text-slate-500" />
             Sign Out
           </button>
@@ -24,7 +24,7 @@ export default async function SignOutButton() {
       ) : (
         <Link
           href={"/sign-in"}
-          className="w-full flex items-center justify-center gap-3 border border-slate-300 hover:bg-slate-100 transition-colors rounded-xl px-3 py-1.5 font-medium text-slate-700 bg-white cursor-pointer"
+          className="w-full flex items-center justify-center gap-3 border border-slate-300 hover:bg-slate-100 transition-colors rounded-xl px-3 py-1.5 font-medium text-slate-700 bg-white cursor-pointer shadow-md"
         >
           <FiLogIn className="w-5 h-5 text-slate-500" />
           Sign In

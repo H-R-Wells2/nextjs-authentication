@@ -128,3 +128,70 @@ export async function sendWelcomeEmail(email: string, name: string) {
     console.error("Error sending welcome email:", error);
   }
 }
+
+export async function sendPasswordResetEmail(email: string, token: string) {
+  const resetUrl = `${process.env.NEXTAUTH_URL}/reset-password?token=${token}`;
+
+  const mailOptions = {
+    from: process.env.GMAIL_USER,
+    to: email,
+    subject: "Reset Your Password - HRWells",
+    html: `
+      <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
+        <div style="background: linear-gradient(135deg, #00bfa5 0%, #13aa95 100%); padding: 40px 20px; text-align: center;">
+          <h1 style="color: white; margin: 0; font-size: 28px;">Password Reset</h1>
+        </div>
+        
+        <div style="padding: 40px 20px; background-color: #f8f9fa;">
+          <h2 style="color: #333; margin-bottom: 20px;">Reset Your Password</h2>
+          
+          <p style="color: #666; font-size: 16px; line-height: 1.5; margin-bottom: 30px;">
+            We received a request to reset your password. Click the button below to create a new password for your HRWells account.
+          </p>
+          
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${resetUrl}" 
+               style="background: linear-gradient(135deg, #00bfa5 0%, #13aa95 100%); 
+                      color: white; 
+                      padding: 15px 30px; 
+                      text-decoration: none; 
+                      border-radius: 8px; 
+                      font-weight: bold; 
+                      display: inline-block;
+                      font-size: 16px;">
+              Reset Password
+            </a>
+          </div>
+          
+          <p style="color: #666; font-size: 14px; margin-top: 30px;">
+            If the button doesn't work, copy and paste this link into your browser:
+          </p>
+          <p style="color: #00bfa5; font-size: 14px; word-break: break-all;">
+            ${resetUrl}
+          </p>
+          
+          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd;">
+            <p style="color: #999; font-size: 12px; margin: 0;">
+              This reset link will expire in 1 hour. If you didn't request a password reset, you can safely ignore this email.
+            </p>
+          </div>
+        </div>
+        
+        <div style="background-color: #333; padding: 20px; text-align: center;">
+          <p style="color: #999; margin: 0; font-size: 14px;">
+            © 2024 HRWells. All rights reserved.
+          </p>
+        </div>
+      </div>
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log("Password reset email sent successfully to:", email);
+    return { success: true };
+  } catch (error) {
+    console.error("Error sending password reset email:", error);
+    return { success: false, error: "Failed to send password reset email" };
+  }
+}
