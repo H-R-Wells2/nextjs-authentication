@@ -84,4 +84,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/sign-in",
   },
+  events: {
+    async signIn(message) {
+      if (message.account && message.account.provider === "google") {
+        const email = message.user?.email;
+
+        if (email) {
+          await prisma.user.update({
+            where: { email },
+            data: { verified: true },
+          });
+        } else {
+          console.error("Google user email is missing.");
+        }
+      }
+    },
+  },
 });

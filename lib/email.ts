@@ -17,7 +17,7 @@ export async function sendVerificationEmail(email: string, token: string) {
     subject: "Verify Your Email - HRWells",
     html: `
       <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center;">
+        <div style="background: linear-gradient(135deg, #00bfa5 0%, #13aa95 100%); padding: 40px 20px; text-align: center;">
           <h1 style="color: white; margin: 0; font-size: 28px;">Welcome to HRWells!</h1>
         </div>
         
@@ -30,7 +30,7 @@ export async function sendVerificationEmail(email: string, token: string) {
           
           <div style="text-align: center; margin: 30px 0;">
             <a href="${verificationUrl}" 
-               style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+               style="background: linear-gradient(135deg, #00bfa5 0%, #13aa95 100%); 
                       color: white; 
                       padding: 15px 30px; 
                       text-decoration: none; 
@@ -45,7 +45,7 @@ export async function sendVerificationEmail(email: string, token: string) {
           <p style="color: #666; font-size: 14px; margin-top: 30px;">
             If the button doesn't work, you can copy and paste this link into your browser:
           </p>
-          <p style="color: #4f46e5; font-size: 14px; word-break: break-all;">
+          <p style="color: #00bfa5; font-size: 14px; word-break: break-all;">
             ${verificationUrl}
           </p>
           
@@ -82,8 +82,8 @@ export async function sendWelcomeEmail(email: string, name: string) {
     subject: "Welcome to HRWells Community!",
     html: `
       <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center;">
-          <h1 style="color: white; margin: 0; font-size: 28px;">Welcome to HRWells!</h1>
+        <div style="background: linear-gradient(135deg, #00bfa5 0%, #13aa95 100%); padding: 40px 20px; text-align: center;">
+          <h1 style="color: white; margin: 0; font-size: 28px;">Welcome to HRWells Community!</h1>
         </div>
         
         <div style="padding: 40px 20px; background-color: #f8f9fa;">
@@ -99,7 +99,7 @@ export async function sendWelcomeEmail(email: string, name: string) {
           
           <div style="text-align: center; margin: 30px 0;">
             <a href="${process.env.NEXTAUTH_URL}" 
-               style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+               style="background: linear-gradient(135deg, #00bfa5 0%, #13aa95 100%); 
                       color: white; 
                       padding: 15px 30px; 
                       text-decoration: none; 

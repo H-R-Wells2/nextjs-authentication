@@ -22,7 +22,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Next.js Authentication",
-  description: "A simple authentication system using Next.js, Prisma, and Auth.js",
+  description:
+    "A simple authentication system using Next.js, Prisma, and Auth.js",
 };
 
 export default async function RootLayout({
@@ -38,7 +39,15 @@ export default async function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} antialiased`}
         >
-          <Toaster position="top-center" />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              style: {
+                // width: "100%",
+                maxWidth: "50vw",
+              },
+            }}
+          />
           {children}
         </body>
       </html>
