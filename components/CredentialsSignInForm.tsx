@@ -76,7 +76,7 @@ export default function CredentialsSignInForm() {
           name="email"
           required
           placeholder="Email"
-          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sec focus:border-transparent"
           disabled={loading}
           autoComplete="off"
         />
@@ -85,20 +85,20 @@ export default function CredentialsSignInForm() {
           name="password"
           required
           placeholder="Password"
-          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sec focus:border-transparent"
           disabled={loading}
         />
         <button
           type="submit"
           disabled={loading}
-          className="bg-secondary hover:bg-[#13aa95] cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed w-full rounded-xl px-4 py-2 text-white font-semibold transition-colors"
+          className="bg-sec hover:bg-[#13aa95] cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed w-full rounded-xl px-4 py-2 text-white font-semibold transition-colors"
         >
           {loading ? "Signing in..." : "Sign In"}
         </button>
         <div className="text-start text-[0.85rem] -mt-1 text-slate-600">
           <Link
             href="/forgot-password"
-            className="text-secondary hover:text-[#13aa95] font-normal"
+            className="text-sec hover:text-[#13aa95] font-normal"
           >
             Forgot password?
           </Link>
@@ -124,7 +124,7 @@ export default function CredentialsSignInForm() {
         Don&apos;t have an account?{" "}
         <Link
           href="/sign-up"
-          className="text-secondary hover:text-[#13aa95] font-semibold"
+          className="text-sec hover:text-[#13aa95] font-semibold"
         >
           Sign up
         </Link>

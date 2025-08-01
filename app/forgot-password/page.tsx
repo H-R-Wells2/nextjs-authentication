@@ -62,7 +62,7 @@ export default function ForgotPasswordPage() {
           <div className="space-y-3">
             <button
               onClick={() => setEmailSent(false)}
-              className="flex justify-center w-full bg-secondary hover:bg-[#13aa95] text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
+              className="flex justify-center w-full bg-sec hover:bg-[#13aa95] text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
             >
               Send Another Email
             </button>
@@ -108,7 +108,7 @@ export default function ForgotPasswordPage() {
               name="email"
               required
               placeholder="Enter your email address"
-              className="w-full border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+              className="w-full border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sec focus:border-transparent"
               disabled={loading}
             />
           </div>
@@ -116,7 +116,7 @@ export default function ForgotPasswordPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-secondary hover:bg-[#13aa95] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
+            className="w-full bg-sec hover:bg-[#13aa95] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
           >
             {loading ? "Sending..." : "Send Reset Email"}
           </button>
@@ -127,7 +127,7 @@ export default function ForgotPasswordPage() {
             Remember your password?
             <Link
               href="/sign-in"
-              className="text-secondary hover:text-[#13aa95] font-semibold"
+              className="text-sec hover:text-[#13aa95] font-semibold"
             >
               Sign in
             </Link>

@@ -58,7 +58,7 @@ export default function VerifyEmailPage() {
       <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-8 text-center">
         {status === 'loading' && (
           <>
-            <FaSpinner className="w-16 h-16 text-secondary mx-auto mb-4 animate-spin" />
+            <FaSpinner className="w-16 h-16 text-sec mx-auto mb-4 animate-spin" />
             <h1 className="text-2xl font-bold text-gray-800 mb-2">
               Verifying Your Email
             </h1>
@@ -80,7 +80,7 @@ export default function VerifyEmailPage() {
             </p>
             <Link
               href="/sign-in"
-              className="flex justify-center w-full bg-secondary hover:bg-[#13aa95] text-white font-semibold py-2 px-6 rounded-xl transition-colors"
+              className="flex justify-center w-full bg-sec hover:bg-[#13aa95] text-white font-semibold py-2 px-6 rounded-xl transition-colors"
             >
               Sign In Now
             </Link>
@@ -97,7 +97,7 @@ export default function VerifyEmailPage() {
             <div className="space-y-3">
               <Link
                 href="/sign-up"
-                className="flex justify-center w-full bg-secondary hover:bg-[#13aa95] text-white font-semibold py-2 px-4 rounded-xl transition-colors"
+                className="flex justify-center w-full bg-sec hover:bg-[#13aa95] text-white font-semibold py-2 px-4 rounded-xl transition-colors"
               >
                 Create New Account
               </Link>

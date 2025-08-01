@@ -26,10 +26,10 @@ export async function credentialsSignIn(formData: FormData) {
   try {
     const user = await prisma.user.findUnique({ where: { email } });
 
-    if (!user?.password) {
+    if (user && !user?.password) {
       return {
         error:
-          "Your account was created using a Google login. To use credentials for login, please try using Google sign-in.",
+          "Your account was created using a Google login. please try login using Google.",
       };
     }
 

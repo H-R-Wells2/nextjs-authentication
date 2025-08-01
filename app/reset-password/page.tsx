@@ -133,7 +133,7 @@ export default function ResetPasswordPage() {
           <div className="space-y-3">
             <Link
               href="/forgot-password"
-              className="block w-full bg-secondary hover:bg-[#13aa95] text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
+              className="block w-full bg-sec hover:bg-[#13aa95] text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
             >
               Request New Link
             </Link>
@@ -163,7 +163,7 @@ export default function ResetPasswordPage() {
           </p>
           <Link
             href="/sign-in"
-            className="inline-block bg-secondary hover:bg-[#13aa95] text-white font-semibold py-2 px-6 rounded-xl transition-colors cursor-pointer"
+            className="inline-block bg-sec hover:bg-[#13aa95] text-white font-semibold py-2 px-6 rounded-xl transition-colors cursor-pointer"
           >
             Sign In Now
           </Link>
@@ -249,7 +249,7 @@ export default function ResetPasswordPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-secondary hover:bg-[#13aa95] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
+            className="w-full bg-sec hover:bg-[#13aa95] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-xl transition-colors cursor-pointer"
           >
             {loading ? "Resetting..." : "Reset Password"}
           </button>

@@ -43,7 +43,7 @@ export default function CredentialsSignUpForm() {
           name="name"
           placeholder="Full Name"
           required
-          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sec focus:border-transparent"
           disabled={loading}
           autoComplete="off"
         />
@@ -52,7 +52,7 @@ export default function CredentialsSignUpForm() {
           name="email"
           placeholder="Email"
           required
-          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sec focus:border-transparent"
           disabled={loading}
           autoComplete="off"
         />
@@ -61,7 +61,7 @@ export default function CredentialsSignUpForm() {
           name="password"
           placeholder="Password (min. 8 characters)"
           required
-          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
+          className="border border-slate-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sec focus:border-transparent"
           disabled={loading}
         />
         <div className="text-xs text-slate-500 space-y-1">
@@ -76,7 +76,7 @@ export default function CredentialsSignUpForm() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-secondary hover:bg-[#13aa95] cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed w-full rounded-xl px-4 py-2 text-white font-semibold transition-colors"
+          className="bg-sec hover:bg-[#13aa95] cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed w-full rounded-xl px-4 py-2 text-white font-semibold transition-colors"
         >
           {loading ? "Creating account..." : "Sign Up"}
         </button>
@@ -86,7 +86,7 @@ export default function CredentialsSignUpForm() {
         Already have an account?{" "}
         <Link
           href="/sign-in"
-          className="text-secondary hover:text-[#13aa95] font-semibold"
+          className="text-sec hover:text-[#13aa95] font-semibold"
         >
           Sign in
         </Link>
