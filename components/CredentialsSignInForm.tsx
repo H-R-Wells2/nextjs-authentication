@@ -39,7 +39,7 @@ export default function CredentialsSignInForm() {
 
   async function handleResendVerification() {
     try {
-      const response = await fetch("/api/resend-verification", {
+      const response = await fetch("/api/auth/resend-verification", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

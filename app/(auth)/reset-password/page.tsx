@@ -36,7 +36,7 @@ export default function ResetPasswordPage() {
 
   const validateToken = async (token: string) => {
     try {
-      const response = await fetch("/api/validate-reset-token", {
+      const response = await fetch("/api/auth/validate-reset-token", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ export default function ResetPasswordPage() {
     }
 
     try {
-      const response = await fetch("/api/reset-password", {
+      const response = await fetch("/api/auth/reset-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
