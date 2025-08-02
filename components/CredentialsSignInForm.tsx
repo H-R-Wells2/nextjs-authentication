@@ -5,11 +5,14 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { credentialsSignIn } from "@/actions/auth";
 import Link from "next/link";
+import useAuthStore from "@/store/authStore";
 
 export default function CredentialsSignInForm() {
   const [loading, setLoading] = useState(false);
   const [showResendVerification, setShowResendVerification] = useState(false);
   const [unverifiedEmail, setUnverifiedEmail] = useState("");
+  const { setIsLoggedIn } = useAuthStore();
+
 
   const router = useRouter();
 
@@ -31,6 +34,7 @@ export default function CredentialsSignInForm() {
     } else {
       toast.success("Signed in successfully!");
       setLoading(false);
+      setIsLoggedIn(true);
       setTimeout(() => {
         router.push("/");
       }, 800);
