@@ -33,7 +33,7 @@ lib/                       # Shared logic (token generation, email, password has
 types/                     # TypeScript interfaces and types
 prisma/                    # Prisma schema and migrations
 public/                    # Static assets
-components/                    # Reusabel components
+components/                # Reusabel components
 ```
 
 ---
@@ -100,4 +100,3 @@ DATABASE_URL=
 * Teams or solo developers reusing a common auth system
 * Boilerplate for SaaS apps, admin panels, or user dashboards
 
----
