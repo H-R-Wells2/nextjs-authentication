@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Authentication Starter Template for Next.js 15
 
-## Getting Started
+*(App Router + Auth.js + Prisma + MongoDB + Nodemailer)*
 
-First, run the development server:
+This repository provides a complete, reusable authentication system built with modern tools in the Next.js ecosystem. It’s designed as a plug-and-play solution for projects that require secure, scalable user authentication out of the box.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+* **Next.js 15** with App Router
+* **Auth.js** for authentication
+
+  * Credentials-based login
+  * Google OAuth provider
+* **Prisma** ORM with **MongoDB**
+* **Nodemailer** for email (password reset, verification)
+* **Tailwind CSS** for styling
+* **Zustand** for global state management
+* Modular API structure with clean folder organization
+
+---
+
+## 🗂 Folder Structure Overview
+
+```
+app/
+  (auth)/                  # Authentication pages (signin, signup, reset-password, etc.)
+  api/auth/                # Auth-related API routes
+  api/auth/[...nextauth]/  # NextAuth config
+
+lib/                       # Shared logic (token generation, email, password hashing)
+types/                     # TypeScript interfaces and types
+prisma/                    # Prisma schema and migrations
+public/                    # Static assets
+components/                    # Reusabel components
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Next.js 15** (App Router)
+* **Auth.js**
 
-## Learn More
+  * Credentials provider
+  * Google OAuth
+* **Prisma** + **MongoDB**
+* **Nodemailer** with Gmail SMTP
+* **Tailwind CSS**
+* **Zustand**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔐 Environment Variables (`.env.local`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+AUTH_SECRET=
 
-## Deploy on Vercel
+NEXTAUTH_URL="http://localhost:3000"
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GMAIL_USER=
+GMAIL_APP_PASSWORD=
+
+DATABASE_URL=
+```
+
+> ⚠️ Make sure to use an app password for `GMAIL_APP_PASSWORD` if you’re using Gmail.
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone this repository** or use it as a GitHub template
+2. **Create `.env.local`** and add all required environment variables
+3. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+4. **Push Prisma schema**
+
+   ```bash
+   npx prisma db push
+   ```
+5. **Run development server**
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🧱 Perfect For:
+
+* Projects that need production-ready authentication
+* Teams or solo developers reusing a common auth system
+* Boilerplate for SaaS apps, admin panels, or user dashboards
+
+---
